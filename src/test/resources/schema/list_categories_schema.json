@@ -1,0 +1,145 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/ListCategories"
+    },
+    "definitions": {
+        "ListCategories": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "count": {
+                    "type": "integer"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "http"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "taxonomy": {
+                    "type": "string"
+                },
+                "parent": {
+                    "type": "integer"
+                },
+                "meta": {
+                    "type": "array",
+                    "items": {}
+                },
+                "_links": {
+                    "$ref": "#/definitions/Links"
+                }
+            },
+            "required": [
+                "_links",
+                "count",
+                "description",
+                "id",
+                "link",
+                "meta",
+                "name",
+                "parent",
+                "slug",
+                "taxonomy"
+            ],
+            "title": "ListCategories"
+        },
+        "Links": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "self": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/About"
+                    }
+                },
+                "collection": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/About"
+                    }
+                },
+                "about": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/About"
+                    }
+                },
+                "wp:post_type": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/About"
+                    }
+                },
+                "curies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Cury"
+                    }
+                }
+            },
+            "required": [
+                "about",
+                "collection",
+                "curies",
+                "self",
+                "wp:post_type"
+            ],
+            "title": "Links"
+        },
+        "About": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "href": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "http"
+                    ]
+                }
+            },
+            "required": [
+                "href"
+            ],
+            "title": "About"
+        },
+        "Cury": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "href": {
+                    "type": "string"
+                },
+                "templated": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "href",
+                "name",
+                "templated"
+            ],
+            "title": "Cury"
+        }
+    }
+}

@@ -1,0 +1,65 @@
+[
+	{
+		"testCase" : "POST request to /wp/v2/categories without name field should get an error",
+		"testType" : "negatif",
+		"statusCode" : 400,
+		"expectKey" : "message",
+		"expectValue" : "Missing parameter(s): name",
+		"data" : {
+			
+		}
+	},
+	{
+		"testCase" : "POST request to /wp/v2/categories with empty name field should get an error",
+		"testType" : "negatif",
+		"statusCode" : 500,
+		"expectKey" : "message",
+		"expectValue" : "A name is required for this term.",
+		"data" : {
+			"name" : ""
+		}
+	},
+	{
+		"testCase" : "POST request to /wp/v2/categories with name field should success",
+		"testType" : "positif",
+		"statusCode" : 201,
+		"expectKey" : "name",
+		"expectValue" : "Automation",
+		"data" : {
+			"name" : "Automation"
+		}
+	},
+	{
+		"testCase" : "POST request to /wp/v2/categories with same name should get an error",
+		"testType" : "negatif",
+		"statusCode" : 400,
+		"expectKey" : "message",
+		"expectValue" : "A term with the name provided already exists with this parent.",
+		"data" : {
+			"name" : "Automation"
+		}
+	},
+	{
+		"testCase" : "POST request to /wp/v2/categories with name and slug field should success",
+		"testType" : "positif",
+		"statusCode" : 201,
+		"expectKey" : "slug",
+		"expectValue" : "api-test",
+		"data" : {
+			"name" : "API Testing",
+			"slug" : "api-test"
+		}
+	},
+	{
+		"testCase" : "POST request to /wp/v2/categories with name, slug and description field should success",
+		"testType" : "positif",
+		"statusCode" : 201,
+		"expectKey" : "description",
+		"expectValue" : "Representational State Transfer",
+		"data" : {
+			"name" : "Rest API",
+			"slug" : "rest-api",
+			"description" : "Representational State Transfer"
+		}
+	}
+]

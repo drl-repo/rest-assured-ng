@@ -1,0 +1,45 @@
+[
+	{
+		"testCase" : "Update request to /wp/v2/categories/{id} with empty name field should get an error",
+		"testType" : "negatif",
+		"statusCode" : 500,
+		"expectKey" : "message",
+		"expectValue" : "A name is required for this term.",
+		"data" : {
+			"name" : ""
+		}
+	},
+	{
+		"testCase" : "Update request to /wp/v2/categories/{id} with name field should success",
+		"testType" : "positif",
+		"statusCode" : 200,
+		"expectKey" : "name",
+		"expectValue" : "Joss",
+		"data" : {
+			"name" : "Joss"
+		}
+	},
+	{
+		"testCase" : "Update request to /wp/v2/categories/{id} with name and slug field should success",
+		"testType" : "positif",
+		"statusCode" : 200,
+		"expectKey" : "slug",
+		"expectValue" : "mantap",
+		"data" : {
+			"name" : "Mantap",
+			"slug" : "mantap"
+		}
+	},
+	{
+		"testCase" : "Update request to /wp/v2/categories/{id} with name, slug and description field should success",
+		"testType" : "positif",
+		"statusCode" : 200,
+		"expectKey" : "description",
+		"expectValue" : "Updated name, slug and title category",
+		"data" : {
+			"name" : "Rest-Assured",
+			"slug" : "rest-assured",
+			"description" : "Updated name, slug and title category"
+		}
+	},
+]
